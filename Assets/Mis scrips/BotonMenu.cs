@@ -14,6 +14,6 @@ public class BotonMenu : MonoBehaviour {
 	}
 
 	public void Jugar(){
-		Application.LoadLevel(0); //se puede cambiar por el numero de la escena de file-builsetting 		
+		Application.LoadLevel(1); //se puede cambiar por el numero de la escena de file-builsetting 		
 	}
 }
