@@ -28,6 +28,11 @@ public class EnemyScript : MonoBehaviour {
         {
             Hitted();
         }
+
+        if (other.gameObject.tag == "Nano"){
+            Instantiate(explosion, transform.position, transform.rotation);
+			Destroy(gameObject);
+        }
     }
 	
 	public void Hitted()

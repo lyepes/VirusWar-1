@@ -20,7 +20,7 @@ public class CrearEscenario : MonoBehaviour {
         {
             MaxEnemy = MaxEnemy - 1;
             Instantiate(Escenario, transform.position, transform.rotation);
-            InvokeRepeating("Generar", 42, 42);            
-        }
+            InvokeRepeating("Generar", 42, 42);
+        }      
 	}
 }

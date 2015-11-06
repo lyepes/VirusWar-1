@@ -32,12 +32,12 @@ public class CharController : MonoBehaviour {
 
 		if (Input.GetKey(KeyCode.UpArrow)) {
 			//charC.Move(-myTransform.forward);
-			myTransform.position = new Vector3(myTransform.position.x,myTransform.position.y + 1,myTransform.position.z);
+			myTransform.position = new Vector3(myTransform.position.x,myTransform.position.y + 0.4f,myTransform.position.z);
 		}
 
 		if (Input.GetKey(KeyCode.DownArrow)) {
 		//	charC.Move(myTransform.forward);
-			myTransform.position = new Vector3(myTransform.position.x,myTransform.position.y - 1,myTransform.position.z);
+			myTransform.position = new Vector3(myTransform.position.x,myTransform.position.y - 0.4f,myTransform.position.z);
 		}
 
 		/*if (Input.GetKey (KeyCode.LeftArrow)) {
@@ -47,7 +47,7 @@ public class CharController : MonoBehaviour {
 			myTransform.position += myTransform.forward;
 		}*/
 
-
+       
 		if (Input.GetMouseButtonDown(0)) {
 			Disparar();
 		}
@@ -67,26 +67,36 @@ public class CharController : MonoBehaviour {
 		textoDeVidas.text = "Vidas: " + vidas;
 		if (vidas<=0) {
 			//Destroy(gameObject);
-			Application.LoadLevel(2);
+			Application.LoadLevel(1);
 		}
 	}
 
-   /* void OnCollisionEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     { 
         if(other.gameObject.name == "pCube4" || other.gameObject.name == "pCube11" || other.gameObject.name == "pCube12" ||
             other.gameObject.name == "pCube13" || other.gameObject.name == "pCube14" || other.gameObject.name == "pCube15" ||
             other.gameObject.name == "pCube16" || other.gameObject.name == "pCube17")
         {
-            Destroy(other.gameObject);
             Hitted();
+            Destroy(other.gameObject);           
         }
         if (other.gameObject.tag == "Enemy")
         {
-            Hitted();
-            Destroy(other.gameObject);
-            
+            Hitted();                       
         }
-    }*/
+        
+        //techo
+        if (other.gameObject.name == "pCube6")
+        {
+            myTransform.position = new Vector3(myTransform.position.x, myTransform.position.y - 0.8f, myTransform.position.z);
+        }
+        //piso
+        if (other.gameObject.name == "pCube1")
+        {
+            myTransform.position = new Vector3(myTransform.position.x, myTransform.position.y + 0.8f, myTransform.position.z);
+        }
+    }
+
 
 
 }
